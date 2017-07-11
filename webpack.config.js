@@ -1,8 +1,9 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin =  require('html-webpack-plugin');
 const path = require('path');
 const restSpreadPlugin = require('babel-plugin-transform-object-rest-spread');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const rupture = require('rupture');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 //  Silence webpack warning about soon to be deprecated API's
 process.noDeprecation = true;
@@ -84,7 +85,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('style.css'),
+    new HtmlWebpackPlugin({
+      template: './dist/index.html'
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
