@@ -2,6 +2,7 @@ const path = require('path');
 const restSpreadPlugin = require('babel-plugin-transform-object-rest-spread');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const rupture = require('rupture');
 
 //  Silence webpack warning about soon to be deprecated API's
 process.noDeprecation = true;
@@ -51,7 +52,10 @@ module.exports = {
             {
               loader: 'stylus-loader',
               options: {
-                sourceMap: true
+                sourceMap: true,
+                use: [
+                rupture()
+              ]
               }
             }
           ]
