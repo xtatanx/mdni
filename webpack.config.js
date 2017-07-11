@@ -18,6 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+      {
         enforce: "pre",
         test: /\.js$/,
         exclude: /(\/node_modules|\/bower_components)/,
@@ -31,7 +35,7 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: ['env'],
-              plugins: [restSpreadPlugin],
+              plugins: [restSpreadPlugin, 'angularjs-annotate'],
               cacheDirectory: true
             }
           }

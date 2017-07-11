@@ -1,7 +1,5 @@
+import angular from 'angular';
+import mdniMap from './components/map/map.component';
 import './theme/theme.styl';
 
-function sumOne(x) {
-  return x + 1;
-}
-
-export default sumOne;
+export default angular.module('mdniApp', [mdniMap]).name;
